@@ -45,7 +45,8 @@ app.get('/location', (request, response) =>  {
 
   } catch(error) {
     console.error(error);
-    response.send(error.message);
+    //the error will not be thrown currently unless you put gobbly gook in the code
+    response.status(500).send('Sorry something went wrong.');
   }
 })
 
@@ -70,11 +71,10 @@ app.get('/weather', (request, response) =>  {
     response.send([weatherDailyArr]);
 
     // console.log(weatherData);
-    
 
   } catch(error) {
     console.error(error);
-    response.send(error.message);
+    response.status(500).send('Sorry something went wrong.');
   }
 })
 
